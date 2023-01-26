@@ -1,0 +1,23 @@
+@use "./variables" as v;
+
+@mixin card($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  width: v.$cardWidth;
+  height: v.$cardHeight;
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin formWrapper() {
+  @include flex(row, center);
+  width: 50%;
+  padding-right: 2rem;
+}

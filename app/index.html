@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit Card Form</title>
+    <link rel="stylesheet" href="/dist/styles.css" />
+    <script src="/app/script/script.js" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <section class="payment-section">
+        <div class="background-image"></div>
+        <div class="card">
+          <div class="card__front" aria-label="Credit Card Front Image">
+            <div class="card__front--circles">
+              <span aria-hidden="true" class="circle circle__big"></span>
+              <span aria-hidden="true" class="circle circle__small"></span>
+            </div>
+            <div class="card__front--text">
+              <p
+                class="card__front--number"
+                aria-label="Credit Card Number"
+                data-credit-card-number
+              >
+                0000&nbsp;0000&nbsp;0000&nbsp;0000
+              </p>
+              <div class="card__front--text-wrapper">
+                <p aria-label="Credit Cardholder Name" data-credit-card-name>Jane Appleseed</p>
+                <div aria-label="Credit Card Expiration Date">
+                  <p data-credit-card-month>00</p>
+                  <p>&#47;</p>
+                  <p data-credit-card-year>00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card__back" aria-label="Credit Card Back Image">
+            <p class="card__back--CVC" aria-label="Credit Card CVC Number" data-credit-card-cvc>
+              000
+            </p>
+          </div>
+        </div>
+
+        <div class="form-section" data-form-section>
+          <form class="form" data-form>
+            <div class="form__item">
+              <label for="name">cardholder name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Jane Appleseed"
+                pattern="[a-zA-Z]{2,20} [a-zA-Z\s-]{3,20}"
+                autocomplete="on"
+                autofocus
+                required
+                title="Enter properly your name and lastname."
+                data-credit-card-name-input
+              />
+              <p
+                class="form__item--warning"
+                aria-label="warning information"
+                aria-hidden="true"
+                data-cardholder-warning
+              >
+                Letters only.
+              </p>
+            </div>
+
+            <div class="form__item">
+              <label for="number">card number</label>
+              <input
+                type="tel"
+                name="number"
+                id="number"
+                placeholder="0000 0000 0000 0000"
+                pattern="[0-9]{16}"
+                autocomplete="on"
+                required
+                title="Enter properly your credit card number. Must contain 16 characters."
+                minlength="16"
+                maxlength="16"
+                data-credit-card-number-input
+              />
+              <p
+                class="form__item--warning"
+                aria-label="warning information"
+                aria-hidden="true"
+                data-card-number-warning
+              >
+                Numbers only.
+              </p>
+            </div>
+
+            <div class="form__inline">
+              <div class="form__inline__wrap form__item">
+                <label for="date">exp. date (mm/yy)</label>
+                <div class="form__inline--inputs">
+                  <input
+                    type="tel"
+                    name="month"
+                    id="date"
+                    list="month-list"
+                    placeholder="MM"
+                    pattern="(0[1-9]|1[0-2])"
+                    autocomplete="on"
+                    required
+                    title="Enter properly your credit card expiration month from 01 to 12"
+                    minlength="2"
+                    maxlength="2"
+                    data-credit-card-month-input
+                  />
+                  <datalist name="month-list" id="month-list" data-credit-card-month-input>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </datalist>
+
+                  <input
+                    type="tel"
+                    name="year"
+                    id="date"
+                    list="year-list"
+                    placeholder="YY"
+                    pattern="(2[3-9]|3[0-3])"
+                    autocomplete="on"
+                    required
+                    title="Enter properly your credit card expiration year from 23 to 33"
+                    minlength="2"
+                    maxlength="2"
+                    data-credit-card-year-input
+                  />
+                  <datalist name="year-list" id="year-list" data-credit-card-month-input>
+                    <option value="23">2023</option>
+                    <option value="24">2024</option>
+                    <option value="25">2025</option>
+                    <option value="26">2026</option>
+                    <option value="27">2027</option>
+                    <option value="28">2028</option>
+                    <option value="29">2029</option>
+                    <option value="30">2030</option>
+                    <option value="31">2031</option>
+                    <option value="32">2032</option>
+                    <option value="33">2033</option>
+                  </datalist>
+                </div>
+                <p
+                  class="form__item--warning"
+                  aria-label="warning information"
+                  aria-hidden="true"
+                  data-card-expiration-date
+                >
+                  Numbers only.
+                </p>
+              </div>
+
+              <div class="form__inline__wrap form__item">
+                <label for="cvc">cvc</label>
+                <input
+                  type="tel"
+                  name="cvc"
+                  id="cvc"
+                  placeholder="777"
+                  pattern="[0-9]{3}"
+                  autocomplete="on"
+                  required
+                  minlength="3"
+                  maxlength="3"
+                  title="Enter 3 characters CVC number from the back of the credit card."
+                  data-credit-card-cvc-input
+                />
+                <p
+                  class="form__item--warning"
+                  aria-label="warning information"
+                  aria-hidden="true"
+                  data-card-cvc
+                >
+                  Numbers only.
+                </p>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn--confirm">Confirm</button>
+          </form>
+        </div>
+
+        <div class="confirmation-section hide-form" data-confirmation-section>
+          <div class="confirmation">
+            <svg width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="40" fill="url(#a)" />
+              <path d="M28 39.92 36.08 48l16-16" stroke="#fff" stroke-width="3" />
+              <defs>
+                <linearGradient
+                  id="a"
+                  x1="-23.014"
+                  y1="11.507"
+                  x2="0"
+                  y2="91.507"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#6348FE" />
+                  <stop offset="1" stop-color="#610595" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <h2 class="confirmation--header">thank you!</h2>
+            <p class="confirmation--text">We've added your card details</p>
+            <button class="btn btn--confirm confirmation--btn" data-continue-btn>Continue</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

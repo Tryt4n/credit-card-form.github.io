@@ -1,0 +1,23 @@
+@use "../global/colors" as *;
+@use "../global/variables" as *;
+
+.btn {
+  cursor: pointer;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  transition: $main-transition;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+}
+
+.btn--confirm {
+  background-color: $very-dark-violet;
+  color: $white;
+}
